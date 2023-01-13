@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        body {
+            background-color: #1a3315a1;
+        }
+        .results {
+            display: flex;
+            flex-direction: column;
+        }
+        .results p {
+            padding: 8px 24px;
+            color: #C8DF52;
+            text-align: center;
+            font-weight: 700;
+            font-size: 20px;
+            text-transform: capitalize;
+            border-bottom: 1px solid #C8DF52;
+        }
+        .results button {
+            margin-left: 30px;
+            color: #fff;
+            padding: 6px 14px;
+            background-color: #C8DF52;
+            border: 1px solid #C8DF52;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .results button:hover {
+            background-color: #4CAF50;
+            border: 1px solid #4CAF50;
+        }
+        #search_error {
+            color: #BA0F30;
+            border-bottom: 1px solid #BA0F30;
+        }
+    </style>
+</head>
+<body>
+    <div class="search_results">
+    <div class="results">
+    <%if(results.length > 0){
+        results.forEach((results)=>{
+            %>
+            <p><%=results.name%> <%=results.quantity%> KES <%=results.unitPrice%> <span><button type="submit" name="buy">Buy</button></span> </p>
+        <%
+        });
+    }else{
+        %>
+        <p id="search_error">Product not found</p>
+        <%
+    }
+    %>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<footer>
+    <div class="contacts">
+        <a href=""><img src="images/facebook.png" alt=""></a>
+        <a href=""><img src="images/twitter.png" alt=""></a>
+        <a href=""><img src="images/email.png" alt=""></a>
+        <a href=""><img src="images/viber.png" alt=""></a>
+    </div>
+    <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="">Feedback</a>
+        <a href="">FAQs</a>
+        <a href="">Terms & Conditions</a>
+        <%if(locals.isLoggedIn){%>
+            <div id="admin"><a href="/admin" type="button" name="admin" action="/admin" method="post">ADMIN</a></div>
+            <%}else{%>
+        <%}%>
+    </div>
+    <div class="footer-logo">
+        <div class="logo">
+            <p>Shamba<span>Afrik</span></p>
+        </div>
+        <div class="copy">
+            <p>&copy;ShambaAfrik Ltd, 2022.</p>
+        </div>
+    </div>
+</footer>

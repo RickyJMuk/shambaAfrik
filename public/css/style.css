@@ -1,0 +1,349 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(Montserrat-Light.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+
+/* ------header------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1a3315a1;
+    height: 10vh;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    padding-top: 20px;
+    padding-right: 10px;
+}
+
+.navbar li {
+    padding-left: 30px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.navbar li a:hover {
+    color: #C8DF52;
+}
+
+.logo p {
+    font-size: 36px;
+    font-weight: 900;
+    color: #C8DF52;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.logo span {
+    font-style: oblique;
+    font-weight: 300;
+}
+/* ------index------ */
+.main-container {
+    background-image: url(../images/organicfood.jpg);
+    background-position: 100%;
+    background-size: 100%;
+    height: 80vh;
+}
+
+.main-bg-cover {
+    background-color: rgba(204, 204, 204, 0.198);
+    height: 80vh;
+}
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.main-text p {
+    font-size: 16px;
+    font-weight: 500;
+    width: 90%;
+    text-align: center;
+}
+
+.main-search {
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    gap: none;
+}
+
+.main-search input[type="text"] {
+    font-size: 18px;
+    outline: 1px solid #4CAF50;
+    border: none;
+}
+
+.main-search button {
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
+    color: white;
+    font-weight: 600;
+    padding: 8px 14px;
+}
+
+.main-search button:hover {
+    background-color: #C8DF52;
+    border: 1px solid #C8DF52;
+    cursor: pointer;
+}
+
+#form-search {
+    display: flex;
+}
+
+.section {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+.section p {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.section img {
+    width: 100px;
+}
+
+.free {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #C8DF52;
+    background-color: #C8DF52;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.customer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #C8DF52;
+    width: 400px;
+    background-color: #C8DF52;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.customer img {
+    padding-top: 20px;
+}
+
+.customer p {
+    padding-top: 20px;
+}
+
+/* -----signup and login bg----- */
+.body-container {
+    background-image: url(../images/kahawa.jpg);
+    background-repeat: repeat-y;
+    background-position: 100%;
+    height: 100vh;
+    animation: change 60s infinite ease-in-out;
+}
+
+.body-container h1 {
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.error {
+    color: #ff0000;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.message {
+    color: #4CAF50;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20px;
+}
+
+@keyframes change {
+    0%
+    {
+        background-image: url(../images/kahawa.jpg);
+    }
+    25%
+    {
+        background-image: url(../images/ghouse.jpg);
+    }
+    50%
+    {
+        background-image: url(../images/rooster.jpg);
+    }
+    75%
+    {
+        background-image: url(../images/drygrass.jpg);
+    }
+    100%
+    {
+        background-image: url(../images/sheep.jpg);
+    }
+}
+
+/* -----footer----- */
+footer {
+    background-color: #1a3315a1;
+    display: flex;
+    justify-content: space-between;
+    height: 20vh;
+}
+
+.contacts {
+    padding-top: 40px;
+    padding-left: 20px;
+}
+
+.footer-links {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #C8DF52;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+#admin a {
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #C8DF52;
+}
+
+#admin a:hover {
+    color: #BA0F30;
+    font-weight: 900;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    padding-right: 100px;
+    padding-top: 30px;
+}
+
+.copy {
+    padding-left: 40px;
+}
+
+/* ----products---- */
+
+/* CSS for the grid container */
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    grid-gap: 16px;
+    padding: 40px 20px 60px;
+    /* Space between grid items */
+}
+
+/* CSS for each grid item */
+.grid-item {
+    position: relative;
+    width: 300px;
+    height: 160px;
+}
+
+.grid-item:hover {
+    scale: 1.1;
+}
+
+.grid-item img {
+    width: 300px;
+    height: 160px;
+}
+
+.grid-item p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1a3315a1;
+    color: white;
+    padding: 8px;
+    margin: 0;
+}
+
+.grid-item button {
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
+    color: #fff;
+    font-weight: 500;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.grid-item button:hover {
+    background-color: #BA0F30;
+    border: 1px solid #BA0F30;
+}
+  
+/* ----about---- */
+.about-bg {
+    background-image: url(/images/organic2.jpg);
+    background-position: 100%;
+    background-size: 100%;
+    height: 40vh;
+}
+
+.about-bg h1 {
+    text-align: center;
+    color: #C8DF52;
+    padding-top: 100px;
+    font-weight: 900;
+}
+
+.about-cover {
+    background-color: #1a3315a1;
+    height: 40vh;
+}
+
+.text-article {
+    padding-top: 40px;
+}
+
+.text-article p {
+    color: #4CAF50;
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 30px;
+    text-align: center;
+}
+

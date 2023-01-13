@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        /* Style the form */
+        form {
+          width: 50%;
+          margin: 0 auto;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          padding: 20px;
+          background-color: #45a04943;
+          margin-top: 5%;
+          padding-top: 30px;
+        }
+    
+        /* Style the input fields */
+        input[type="email"], input[type="password"] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+    
+        /* Style the submit button */
+        button {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          font-weight: 600;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+    
+        button:hover {
+          background-color: #C8DF52;
+        }
+      </style>
+</head>
+<html>
+
+<body class="body-container">
+
+  <nav class="navbar">
+    <div class="logo">
+        <p>Shamba<span>Afrik</span></p>
+    </div>
+    
+    <ul>
+        <li><a href="/products"> Products</a></li>
+        <li><a href="/about"> About</a></li>
+        <li><a href="/signup"> Sign Up</a></li>
+    </ul>
+</nav>
+
+  <h1>Log In</h1>
+  <%if(locals.message){%>
+    <p class="message"><%=locals.message%></p>
+<%}%>
+
+<%if(locals.error){%>
+  <p class="error"><%=locals.error%></p>
+
+<%}%>
+
+  <%if(locals.user){%>
+    <form action="/login" method="post">
+      <input type="email" name="email" placeholder="Enter your email" value="<%=locals.user.email%>" required><br>
+      <input type="password" name="password" placeholder="Enter your password" value="<%=locals.user.password%>" required><br><br>
+      <button type="submit">Log In</button>
+    </form> 
+  <%}else{%>
+  <form action="/login" method="post">
+    <input type="email" name="email" placeholder="Enter your email" required><br>
+    <input type="password" name="password" placeholder="Enter your password" required><br><br>
+    <button type="submit">Log In</button>
+  </form>
+  <%}%>
+</body>
+</html>
+
+</html>

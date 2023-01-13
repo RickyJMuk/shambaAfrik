@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home |</title>
+</head>
+<body>
+    <%-include('header')%>
+    <main class="main-container">
+        <div class="main-bg-cover">
+            <div class="main-text">
+                <h1>Welcome back!</h1>
+                <h2>Your number one organic farm inputs dealer!</h2>
+                <p>Interested in Organic Farming? Looking for Organic Farming inputs? We are here for you? At ShambaAfrik,
+                    we
+                    provide organic farm solutions for the Kenyan farmer. Our solutions are tailored for you, the Kenyan
+                    farmer
+                    at affordable prices. </p>
+            </div>
+            <div class="main-search">
+                <form action="/search" id="form-search" method="post">
+                    <input type="text" id="" name="search">
+                    <button type="submit">Search</button>
+                </form>
+    
+            </div>
+        </div>
+    </main>
+    <section>
+        <div class="section">
+        <div class="free">
+            <img src="images/free-shipping.png" alt="">
+            <p>We offer free delivery countrywide!</p>
+        </div>
+        <div class="customer">
+            <img src="images/customer-service.png" alt="">
+            <p>Experience our excellent customer support offering advice on all organic farming.</p>
+        </div>
+        </div>
+    </section>
+    <%-include('footer')%>
+</body>
+</html>

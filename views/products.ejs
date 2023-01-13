@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <%-include('header')%>
+    <div class="about-bg">
+      <div class="about-cover">
+          <h1>Our Products</h1>
+      </div>
+  </div>
+    <!-- HTML for the grid container -->
+<div id="grid-container">
+    <!-- HTML for each grid item -->
+    <div class="grid-item">
+      <img src="images/compost.jpg" alt="Item 1">
+      <p>Compost Manure<br><span>1 tonne @ KES 3000</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>
+    </div>
+    <div class="grid-item">
+      <img src="images/drygrass.jpg" alt="Item 2">
+      <p>Dry Mulch Grass<br><span>10kg @ KES 500</span><br><button action="/buy" type="submit" name="buy">Buy</button> </p>
+    </div>
+    <!-- Add more grid items here -->
+  </div>
+<script src="js/main.js"></script>   
+</body>
+</html>

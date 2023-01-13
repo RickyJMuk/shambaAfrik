@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        /* Style the form */
+        form {
+            width: 50%;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #45a04943;
+            margin-top: 5%;
+            padding-top: 30px;
+        }
+
+        /* Style the input fields */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: 600;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #C8DF52;
+        }
+    </style>
+</head>
+
+<body class="body-container">
+
+<nav class="navbar">
+    <div class="logo">
+        <p>Shamba<span>Afrik</span></p>
+    </div>
+    
+    <ul>
+        <li><a href="/products"> Products</a></li>
+        <li><a href="/about"> About</a></li>
+        <li><a href="/login"> Log In</a></li>
+    </ul>
+</nav>
+    <h1>Sign Up</h1>
+    <%if(locals.error){%>
+        <p class="error"><%=locals.error%></p>
+    <%}%>
+
+    <%if(locals.user){%>
+        <form action="/signup" id="signup-form" method="post">
+            <input type="text" name="firstname" value="<%=locals.user.firstname%>" placeholder="Enter your first name" required><br>
+            <input type="text" name="lastname" value="<%=locals.user.lastname%>" placeholder="Enter your last name" required><br>
+            <input type="email" name="email" value="<%=locals.user.email%>" placeholder="Enter your email" required><br>
+            <input type="password" name="password" value="<%=locals.user.password%>" placeholder="Enter a password" required><br>
+            <input type="password" name="confirmpassword" value="<%=locals.user.confirmpassword%>" placeholder="Confirm your password" required><br><br>
+            <input type="submit" value="Sign Up">
+        </form>
+        <%}else{%>
+            <form action="/signup" method="post">
+                <input type="text" name="firstname" placeholder="Enter your first name" required><br>
+                <input type="text" name="lastname" placeholder="Enter your last name" required><br>
+                <input type="email" name="email" placeholder="Enter your email" required><br>
+                <input type="password" name="password" placeholder="Enter a password" required><br>
+                <input type="password" name="confirmpassword" placeholder="Confirm your password" required><br><br>
+                <input type="submit" value="Sign Up">
+            </form>
+            <%}%>
+</body>
+
+</html>

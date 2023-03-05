@@ -52,6 +52,31 @@
     font-style: oblique;
     font-weight: 300;
 }
+
+.bar {
+    display: none;
+}
+
+@media screen and (max-width:576px){
+    /* .navbar ul {
+        display: none;
+    } */
+    .toggle {
+        display: none;
+        border: 1px solid #fff;
+        background-color: #fff;
+        position: absolute;
+        right: 0rem;
+        top: 5rem;
+        width: 50%;
+        height: 100vh;
+    }
+    .bar {
+        right: 40px;
+        top: 20px;
+    }
+}
+
 /* ------index------ */
 .main-container {
     background-image: url(../images/organicfood.jpg);
@@ -156,6 +181,10 @@
 
 .customer p {
     padding-top: 20px;
+}
+
+@media screen and (max-width:576px) {
+
 }
 
 /* -----signup and login bg----- */
@@ -301,16 +330,19 @@ footer {
     margin: 0;
 }
 
-.grid-item button {
+.grid-item a {
+    text-decoration: none;
+    font-weight: 600;
     background-color: #4CAF50;
     border: 1px solid #4CAF50;
     color: #fff;
     font-weight: 500;
-    padding: 4px;
+    padding: 2px 4px;
+    margin: 1px;
     border-radius: 4px;
 }
 
-.grid-item button:hover {
+.grid-item a:hover {
     background-color: #BA0F30;
     border: 1px solid #BA0F30;
 }
@@ -347,3 +379,18 @@ footer {
     text-align: center;
 }
 
+/* ----admin----- */
+.admin-header {
+    display: flex;
+    padding: 10px 0;
+    background-color: #1a3315a1;
+    margin-bottom: 10px;
+}
+
+.admin-header h1 {
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    padding-left: 16rem;
+    padding-top: 10px;
+}

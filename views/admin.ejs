@@ -36,7 +36,13 @@ table td a {
 </head>
 <body>
       <main>
+        <div class="admin-header">
+        <div class="logo">
+          <p>Shamba<span>Afrik</span></p>
+      </div>
         <h1>Admin</h1>
+      </div>
+        <h2 class="">Inventory</h2>
         <table>
           <table>
             <thead>
@@ -54,8 +60,8 @@ table td a {
                     <td><%= row.name %></td>
                     <td><%= row.quantity %></td>
                     <td><%= row.unitPrice %></td>
-                    <td><button type="submit" name="" method="">Update</button></td>
-                    <td><button type="submit" name="" method="">Delete</button></td>
+                    <td><button type="submit" action="/update" name="update" method="post">Update</button></td>
+                    <td><button type="submit" action="/delete" name="delete" method="post">Delete</button></td>
                 </tr>
                 <% }); %>
             </tbody>

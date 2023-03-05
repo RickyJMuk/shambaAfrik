@@ -106,6 +106,7 @@ app.post('/login', (req, res)=>{
             bcrypt.compare(user.password, result[0].password, function(err, matched) {
                 if(matched) {
                     req.session.isLoggedIn = true
+                    req.session.role = true
                     req.session.userId = result[0].userId
                     req.session.user = result[0]
                     res.redirect('/home')
@@ -157,18 +158,31 @@ app.post('/search', (req, res)=> {
     });
 });
 
+app.post('/delete', (req, res)=> {
+    db.query(`DROP`)
+})
+
 app.get('/admlog', (req, res)=>{
     res.render('admlog')
 })
 
+app.get('/buy', (req, res)=>{
+    res.render('buy')
+})
+
 app.get("/admin", (req, res) => {
     db.query("SELECT * FROM products", (err, data) => {
-        if (err) {
-            console.log(err);
-            res.send("Error fetching data from the database.");
-        } else {
-            res.render("admin", { data: data });
+        db.query(`SELECT role FROM users WHERE role = 'admin'`, (err)=>{
+            if (err) {
+                console.log(err);
+                res.send("Error fetching data from the database.");
+            } else {
+                res.render("admin", { data: data });
+            }
         }
+            
+        )
+         
     });
     
     // db.query(`SELECT users  FROM users WHERE role = 'admin'`, (result)=> {

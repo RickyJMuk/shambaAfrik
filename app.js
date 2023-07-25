@@ -99,7 +99,7 @@ app.post('/login', (req, res)=>{
     db.query(`SELECT * FROM users WHERE email = '${user.email}'`, (err, result)=>{
         if(err) {
             console.log(err)
-            res.render('login', {error: "Internal sever error. Contact Admin."})
+            res.render('login', {error: "Internal server error. Contact Admin."})
             return
         }
         if(result.length > 0) {
@@ -128,11 +128,11 @@ app.get('/logout', (req, res) => {
         }
         res.redirect('/')
     })
-})
+});
 
 app.get('/home', (req, res)=>{
     res.render('home')
-})
+});
 
 app.get("/profile/:userId", (req, res)=>{
     console.log(req.params.userId)
@@ -144,7 +144,7 @@ app.get("/profile/:userId", (req, res)=>{
             res.render('profile', {user: result[0]})
         }
     })
-})
+});
 
 app.post('/search', (req, res)=> {
     var searchQuery = req.body.search;
@@ -159,7 +159,7 @@ app.post('/search', (req, res)=> {
 });
 
 app.post('/delete', (req, res)=> {
-    db.query(`DROP`)
+    db.query(`DELETE FROM users WHERE userId = 'userId'`)
 })
 
 app.get('/admlog', (req, res)=>{
@@ -170,29 +170,41 @@ app.get('/buy', (req, res)=>{
     res.render('buy')
 })
 
+app.get('/admin-dashboard', (req, res)=>{
+    db.query(`SELECT users  FROM users WHERE role = 'admin'`, (result)=> {
+        if (result) {
+            res.render('admin-dashboard')
+        } else {
+            console.log(error)
+            res.send("Warning. Only admin is allowed.")
+        }
+    })
+})
+
 app.get("/admin", (req, res) => {
     db.query("SELECT * FROM products", (err, data) => {
-        db.query(`SELECT role FROM users WHERE role = 'admin'`, (err)=>{
+        
             if (err) {
                 console.log(err);
                 res.send("Error fetching data from the database.");
             } else {
                 res.render("admin", { data: data });
-            }
-        }
-            
-        )
-         
-    });
-    
-    // db.query(`SELECT users  FROM users WHERE role = 'admin'`, (result)=> {
-    //     if (result) {
-    //         res.render('admin')
-    //     }
-    // })
+            }  
+    });   
 });
 
-// app.post('/admin', (req, res)=> {
+app.get("/users", (req, res) =>{
+    db.query("SELECT userId, firstName, lastName, email, dateOfRegistration FROM users", (err, data)=> {
+        if (err) {
+            console.log(err);
+            res.send("Error fetching data from the database.");
+        } else{
+            res.render("users", { data: data});
+        }
+    });
+});
+
+// app.post('/admin-dashboard', (req, res)=> {
 //     db.query(`SELECT role FROM users WHERE role = admin`, (result, error)=>{
 //         if(result) {
 //             res.render('admin')

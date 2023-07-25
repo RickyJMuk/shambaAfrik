@@ -2,23 +2,21 @@
 
 <nav class="navbar">
     <div class="logo">
-        <p>Shamba<span>Afrik</span></p>
+        <a href="/home"><p>Shamba<span>Afrik</span></p></a>
     </div>
-
-    
-        <img  class="bar" src="images/bar.png" alt="">
-    
-    <div class="toggle">
-    <ul>
-        <li><a href="/products"> Products</a></li>
-        <li><a href="/about"> About</a></li>
-        <%if(locals.isLoggedIn){%>
-            <li><a href="/profile/<%=locals.userId%>"> Profile</a></li>
+    <img class="bar" src="images/bar.png" alt="">
+    <input type="checkbox" id="toggle-btn">
+    <label for="toggle-btn" class="toggle">
+        <ul>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/about">About</a></li>
+            <%if(locals.isLoggedIn){%>
+            <li><a href="/profile/<%=locals.userId%>">Profile</a></li>
             <li><a href="/logout">Log Out</a></li>
-        <%}else{%>
-        <li><a href="/login"> Log In</a></li>
-        <li><a href="/signup"> Sign Up</a></li>
-        <%}%>
-    </ul>
-    </div>
+            <%}else{%>
+            <li><a href="/login">Log In</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            <%}%>
+        </ul>
+    </label>
 </nav>

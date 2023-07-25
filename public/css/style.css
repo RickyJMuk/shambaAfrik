@@ -40,6 +40,10 @@
     color: #C8DF52;
 }
 
+.logo a {
+    text-decoration: none;
+}
+
 .logo p {
     font-size: 36px;
     font-weight: 900;
@@ -57,6 +61,51 @@
     display: none;
 }
 
+
+@media screen and (max-width: 768px) {
+    .navbar ul {
+        display: none;
+    }
+
+    .bar {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin: 15px;
+        cursor: pointer;
+    }
+
+    .toggle {
+        /* display: none; */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #1a3315a1;
+    }
+
+    .toggle ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .toggle li {
+        padding: 10px 0;
+    }
+
+    .toggle li a {
+        font-size: 16px;
+    }
+
+    /* Toggle the menu when the checkbox is checked */
+    #toggle-btn:checked + .toggle {
+        display: block;
+    }
+}
+
+
 @media screen and (max-width:576px){
     /* .navbar ul {
         display: none;
@@ -70,6 +119,9 @@
         top: 5rem;
         width: 50%;
         height: 100vh;
+    }
+    .toggle ul a {
+        color: #1a3315a1;
     }
     .bar {
         right: 40px;
@@ -183,9 +235,52 @@
     padding-top: 20px;
 }
 
-@media screen and (max-width:576px) {
+@media screen and (max-width: 768px) {
+    .main-container {
+     background-repeat: no-repeat;
+     height: 44vh;
+    }
+    
+    .main-bg-cover {
+        height: 44vh;
+    }
 
-}
+    .main-text {
+      padding-top: 50px;
+    }
+  
+    .main-search {
+      position: static;
+      margin-top: 20px;
+      right: auto;
+      text-align: center;
+    }
+  
+    .main-search input[type="text"] {
+      width: 60%;
+      margin-right: 10px;
+    }
+  
+    .section {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+  
+    .section p {
+      font-size: 16px;
+    }
+  
+    .free,
+    .customer {
+      width: 90%;
+      margin-bottom: 20px;
+    }
+  
+    .customer img {
+      padding-top: 0;
+    }
+  }
 
 /* -----signup and login bg----- */
 .body-container {
@@ -241,55 +336,78 @@
 }
 
 /* -----footer----- */
+
 footer {
     background-color: #1a3315a1;
+    color: #fff;
+    padding: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    height: 20vh;
+    align-items: center;
 }
 
-.contacts {
-    padding-top: 40px;
-    padding-left: 20px;
-}
-
-.footer-links {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
+.contacts a img {
+    width: 30px;
+    margin-right: 10px;
 }
 
 .footer-links a {
     text-decoration: none;
-    color: #C8DF52;
+    color: #fff;
+    margin-right: 20px;
+    font-size: 16px;
 }
 
 .footer-links a:hover {
-    color: #fff;
+    color: #C8DF52;
 }
 
 #admin a {
-    border: none;
-    font-size: 20px;
-    font-weight: 600;
-    color: #C8DF52;
+    font-weight: 700;
 }
 
 #admin a:hover {
     color: #BA0F30;
+}
+
+.footer-logo .logo p {
+    font-size: 24px;
     font-weight: 900;
+    color: #C8DF52;
+    margin-bottom: 0;
 }
 
-.footer-logo {
-    display: flex;
-    flex-direction: column;
-    padding-right: 100px;
-    padding-top: 30px;
+.footer-logo .logo span {
+    font-style: oblique;
+    font-weight: 300;
 }
 
-.copy {
-    padding-left: 40px;
+.footer-logo .copy p {
+    margin-top: 0;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contacts {
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        margin-bottom: 20px;
+    }
+
+    .footer-links a {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
 
 /* ----products---- */
 
@@ -345,6 +463,26 @@ footer {
 .grid-item a:hover {
     background-color: #BA0F30;
     border: 1px solid #BA0F30;
+}
+
+@media screen and (max-width: 768px) {
+    #grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for smaller screens */
+        padding: 20px;
+    }
+
+    .grid-item {
+        width: 100%;
+        /* Adjust the width for smaller screens */
+        height: auto;
+        /* Allow the height to adjust based on content */
+    }
+
+    .grid-item p {
+        font-size: 14px;
+        /* Adjust the font size for smaller screens */
+    }
 }
   
 /* ----about---- */

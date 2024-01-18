@@ -429,7 +429,7 @@ footer {
 }
 
 .grid-item:hover {
-    scale: 1.1;
+    scale: 1.01;
 }
 
 .grid-item img {
@@ -484,6 +484,7 @@ footer {
         /* Adjust the font size for smaller screens */
     }
 }
+
   
 /* ----about---- */
 .about-bg {

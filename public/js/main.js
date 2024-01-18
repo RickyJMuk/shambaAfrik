@@ -13,15 +13,15 @@ const items = [
   },
   {
     image: 'images/neem.jpg',
-    description: '<p>Neem Oil Pesticide<br><span>1ltr @ KES 2000</span><br><button action="/buy" type="submit" name="buy">Buy</button> </p>'
+    description: '<p>Neem Oil<br><span>1ltr @ KES 2000</span><br><button action="/buy" type="submit" name="buy">Buy</button> </p>'
   },
   {
     image: 'images/pyrethrin.jpg',
-    description: '<p>Natural Pryethrin Pesticide<br><span>1ltr @ KES 2000</span><br><button action="/buy" type="submit" name="buy">Buy</button> </p>'
+    description: '<p>Natural Pryethrum Extarct<br><span>1ltr @ KES 2000</span><br><button action="/buy" type="submit" name="buy">Buy</button> </p>'
   },
   {
     image: 'images/garlic.jpeg',
-    description: '<p>Garlic Extract Pesticide<br><span>1ltr @ KES 2000</span><br><button action="/buy" type="submit" name="buy">Buy</button> </p>'
+    description: '<p>Garlic Extract<br><span>1ltr @ KES 2000</span><br><button action="/buy" type="submit" name="buy">Buy</button> </p>'
   },
   {
     image: 'images/manure.jpg',
@@ -36,20 +36,16 @@ const items = [
     description: '<p>Biochar<br><span>20kg @ KES 600</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>'
   },
   {
-    image: 'images/maasaisheep.jpg',
-    description: '<p>Red Masaai Sheep<br><span>1 @ KES 4500</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>'
+    image: 'images/chilli.jpg',
+    description: '<p>Chilli Paper Extract<br><span>1 @ KES 5000</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>'
   },
   {
-    image: 'images/somalisheep.jpg',
-    description: '<p>Somali Sheep<br><span>1 @ KES 5000</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>'
-  },
-  {
-    image: 'images/gallagoats.jpg',
-    description: '<p>Gala Goats<br><span>1 @ KES 5000</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>'
+    image: 'images/seaweedx.jpeg',
+    description: '<p>Seaweed Extract<br><span>5 litres @ KES 1000</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>'
   },
   {
     image: 'images/seedlings.jpg',
-    description: '<p>Indigenous Avocado Seedlings<br><span>1 seedling @ KES 100</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>'
+    description: '<p>Organic Avocado Seedlings<br><span>1 seedling @ KES 100</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>'
   },
   {
     image: 'images/clover.jpeg',

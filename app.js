@@ -158,9 +158,24 @@ app.post('/search', (req, res)=> {
     });
 });
 
-app.post('/delete', (req, res)=> {
-    db.query(`DELETE FROM users WHERE userId = 'userId'`)
-})
+// app.post("/delete", (req, res) => {
+//   const userId = req.body.userId; // Assuming you are using body-parser middleware to parse the request body
+
+//   if (!userId) {
+//     res.status(400).send("Missing userId");
+//     return;
+//   }
+
+//   db.query(`DELETE FROM users WHERE userId = ?`, [userId], (err, result) => {
+//     if (err) {
+//       console.log(err);
+//       res.status(500).send("Error deleting user from the database.");
+//     } else {
+//       res.redirect("/"); // Redirect to the desired page after successful deletion
+//     }
+//   });
+// });
+
 
 app.get('/admlog', (req, res)=>{
     res.render('admlog')

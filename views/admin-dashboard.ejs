@@ -2,98 +2,138 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
-
-    <style>
-        * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-.container {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-}
-
-.header {
-	background-color: #4CAF50;
-	color: #fff;
-	padding: 20px;
-}
-
-.header h1 {
-	margin: 0;
-	font-size: 28px;
+	<style>
+		body {
+    /* font-family: Arial, sans-serif; */
+    background-color: #f5f5f5;
 }
 
 .sidebar {
-	background-color: #ccc;
-	color: #fff;
-	padding: 20px;
-	flex-basis: 20%;
+    background-color: #C8DF52;
+    color: #fff;
+    padding: 20px;
 }
 
 .sidebar ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar li {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .sidebar a {
-	color: #fff;
-	text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
 .sidebar a:hover {
-	text-decoration: underline;
+    color: #333;
 }
 
 .main-content {
-	flex-basis: 80%;
-	padding: 20px;
+    padding: 20px;
 }
 
-.footer {
-	background-color: #4CAF50;
-	color: #fff;
-	padding: 20px;
-	text-align: center;
+.card {
+    margin-bottom: 20px;
 }
 
-    </style>
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #666;
+}
+	</style>
 
 </head>
 <body>
-    <div class="container">
-		<div class="header">
-			<h1>Admin Dashboard</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="logo">
+			<a href="/home"><p>Shamba<span>Afrik</span></p></a>
 		</div>
-		<div class="sidebar">
-			<ul>
-				<li><a href="/admin">Products</a></li>
-				<li><a href="/users">Users</a></li>
-				<li><a href="#">Posts</a></li>
-				<li><a href="#">Comments</a></li>
-				<li><a href="#">Settings</a></li>
-			</ul>
-		</div>
-		<div class="main-content">
-			<h2>Welcome to the ShambaAfrik's Admin Page</h2>
-			<p>You can now manage our customers and products.</p>
-		</div>
-		<div class="footer">
-			<p>&copy; 2023 Admin, ShambaAfrik. All rights reserved.</p>
-		</div>
-	</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">Products</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10 main-content">
+                <h1>Welcome to the Admin Dashboard</h1>
+                <p>This is a sample admin dashboard.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Users</h5>
+                                <p class="card-text">View all ShambaAfrik users.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Products</h5>
+                                <p class="card-text">View all ShambaAfrik products.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card 3</h5>
+                                <p class="card-text">This is a sample card.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>

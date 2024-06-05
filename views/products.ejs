@@ -1,33 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <style>
+    body {
+      /* font-family: Arial, sans-serif; */
+      background-color: #f5f5f5;
+    }
+
+    .about-bg {
+      background-image: url('images/bg.jpg');
+      background-size: cover;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .about-cover {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+    }
+
+    .card {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #F51720;
+    }
+  </style>
+
 </head>
+
 <body>
-    <%-include('header')%>
+  <%-include('header')%>
     <div class="about-bg">
       <div class="about-cover">
-          <h1>Our Products</h1>
+        <h1>Our Products</h1>
       </div>
-  </div>
+    </div>
     <!-- HTML for the grid container -->
-<div id="grid-container">
-    <!-- HTML for each grid item -->
-    <div class="grid-item">
-      <img src="images/compost.jpg" alt="Item 1">
-      <p>Compost Manure<br><span>1 tonne @ KES 3000</span><br><button action="/buy" type="submit" name="buy">Buy</button></p>
+    <div class="container">
+      <div class="row">
+        <!-- HTML for each grid item -->
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/compost.jpg" alt="Compost Manure" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Compost Manure</h5>
+              <p class="card-text">1 tonne @ KES 3000</p>
+              <button id="buy-1" class="btn btn-primary" type="submit" name="buy"
+                data-product='{"name": "Compost Manure", "price": 3000, "quantity": 1}'>Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/drygrass.jpg" alt="Dry Mulch Grass" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Dry Mulch Grass</h5>
+              <p class="card-text">10kg @ KES 500</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/Azolla.jpg" alt="Azolla" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Azolla</h5>
+              <p class="card-text">1kg @ KES 100</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/manure.jpg" alt="Animal manure" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Animal Manure</h5>
+              <p class="card-text">1 tonne @ KES 3000</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/kunde.jpg" alt="Cowpeas Seeds" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Cowpeas Seeds</h5>
+              <p class="card-text">1 kg @ KES 200</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/earthworms.jpg" alt="Red Earthworms" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Red Earthworms</h5>
+              <p class="card-text">1 kg @ KES 2500</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/neem.jpg" alt="Neem Oil" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Neem Oil</h5>
+              <p class="card-text">1 litre @ KES 2000</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/pyrethrin.jpg" alt="Natural Pyrethrum Extract" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Natural Pyrethrum Extract</h5>
+              <p class="card-text">1 litre @ KES 2000</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/garlic.jpeg" alt="Garlic Extract" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Garlic Extract</h5>
+              <p class="card-text">1 litre @ KES 2000</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/lime.jpeg" alt="Lime Dust" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Lime Dust</h5>
+              <p class="card-text">25 kg @ KES 700</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/biochar.jpeg" alt="Biochar" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Biochar</h5>
+              <p class="card-text">50 kg @ KES 2200</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/chilli.jpg" alt="Chilli Pepper Extract" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Chilli Pepper Extract</h5>
+              <p class="card-text">10 litre @ KES 3000</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/seaweedx.jpeg" alt="Seaweed Extract" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Seaweed Extract</h5>
+              <p class="card-text">5 litres @ KES 1000</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/fish.jpeg" alt="Fish Emulsion" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Fish Emulsion</h5>
+              <p class="card-text">1 litre @ KES 700</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="images/clover.jpeg" alt="Clover Seeds" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Clover Seeds</h5>
+              <p class="card-text">1 kg @ KES 350</p>
+              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="grid-item">
-      <img src="images/drygrass.jpg" alt="Item 2">
-      <p>Dry Mulch Grass<br><span>10kg @ KES 500</span><br><a href="/buy" type="submit" action="/buy" name="buy">Buy</a> </p>
+
+    <div id="cart" style="display: none;">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <button id="checkout-btn">Checkout</button>
     </div>
-    <!-- Add more grid items here -->
-  </div>
-  <%-include('footer')%>
-<script src="js/main.js"></script>   
+
+    <%-include('footer')%>
+      <script src="js/main.js"></script>   
 </body>
+
 </html>

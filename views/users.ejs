@@ -32,6 +32,19 @@ table td a {
   margin-right: 0.5em;
 }
 
+button {
+  background-color: #F51720;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  font-weight: 900;
+  scale: 1.05;
+}
+
     </style>
 </head>
 <body>
@@ -62,7 +75,12 @@ table td a {
                     <td><%= row.lastName %></td>
                     <td><%= row.email %></td>
                     <td><%= row.dateOfRegistration %></td>
-                    <td><button type="submit" action="/delete" name="delete" method="post">Delete</button></td>
+                    <td>
+                      <form action="/delete" method="post">
+                        <input type="hidden" name="id" value="<%= row.userId %>">
+                        <button type="submit">Delete</button>
+                      </form>
+                    </td>
                 </tr>
                 <% }); %>
             </tbody>

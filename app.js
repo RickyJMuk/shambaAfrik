@@ -2,9 +2,11 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const mysql = require('mysql');
 const session = require('express-session');
+const multer = require('multer');
 const path = require('path');
 require('dotenv').config(); // Load environment variables
 
+const upload = multer({ dest: './public/uploads/' });
 const app = express();
 const PORT = process.env.PORT || 5000;
 const saltRounds = 4;
@@ -172,14 +174,14 @@ app.get('/admin-dashboard', (req, res) => {
     }
 });
 
-app.get("/admin", (req, res) => {
+app.get("/inventory", (req, res) => {
     if (req.session.role === 'admin') {
         db.query("SELECT * FROM products", (err, data) => {
             if (err) {
                 console.log(err);
                 res.send("Error fetching data from the database.");
             } else {
-                res.render("admin", { data: data });
+                res.render("inventory", { data: data });
             }
         });
     } else {
@@ -217,5 +219,78 @@ app.post('/admin-login', (req, res) => {
         res.render('admin-login', { error: "Invalid admin credentials." });
     }
 });
+
+app.post('/delete', (req, res) => {
+    const userId = req.body.id;
+  
+    const query = 'DELETE FROM users WHERE userId = ?';
+    db.query(query, [userId], (err, results) => {
+      if (err) {
+        console.error('Error deleting user:', err);
+        return res.status(500).send('Internal Server Error');
+      }
+      res.redirect('/users'); // Redirect to the page where you list users
+    });
+});
+  
+
+app.get('/checkout', (req, res) => {
+    res.render('checkout', { cart: cart });
+  });
+  
+  app.post('/checkout', (req, res) => {
+    const { name, email, phone, address } = req.body;
+    // Process payment (e.g., using Stripe or PayPal)
+    // ...
+    // Update cart and clear it
+    cart.forEach((item) => {
+      // Update inventory or database
+    });
+    cart = [];
+    res.redirect('/thank-you');
+  });
+  
+  app.get('/thank-you', (req, res) => {
+    res.render('thank-you');
+  });
+
+app.get('/soko', (req, res) => {
+    res.render('soko');
+});
+
+app.post('/soko', upload.single('imageUrl'), (req, res) => {
+    // req.file now contains the uploaded file
+    // req.body contains the entire request body
+    const { name, description, price, quantity, category } = req.body;
+    const imageUrl = req.file;
+  
+    if (imageUrl) {
+      const uploadPath = __dirname + '/public/uploads/' + imageUrl.filename;
+      // Since imageUrl is already uploaded to the destination, you don't need to call mv
+      // You can directly use the uploaded file
+      const query = 'INSERT INTO Listings (name, description, price, quantity, category, imageUrl) VALUES (?, ?, ?, ?, ?, ?)';
+      db.query(query, [name, description, price, quantity, category, '/uploads/' + imageUrl.filename], (err, result) => {
+        if (err) {
+          console.error('Failed to insert listing:', err);
+          return res.status(500).send('Failed to list product');
+        }
+        // res.redirect('/soko');
+        res.status(201).send('Product listed successfully!');
+      });
+    } else {
+      res.status(400).send('No file uploaded');
+    }
+  });
+
+  app.get('/listings', (req, res) => {
+    const query = 'SELECT * FROM Listings';
+    db.query(query, (err, results) => {
+      if (err) {
+        console.error('Error fetching listings:', err);
+        return res.status(500).send('Error fetching listings');
+      }
+      res.render('listings', { listings: results });
+    });
+  });
 
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));

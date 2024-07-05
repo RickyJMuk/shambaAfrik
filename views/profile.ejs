@@ -1,115 +1,40 @@
+<!-- views/profile.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-<link rel="stylesheet" href="css/style.css">
-
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 20px;
+      padding-top: 50px;
     }
-
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      color: #333;
-      text-align: center;
-    }
-
-    .profile-info {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .profile-info img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-right: 20px;
-    }
-
-    .profile-info h2 {
-      margin: 0;
-    }
-
-    .profile-info p {
-      margin: 0;
-      color: #666;
-    }
-
-    .profile-details {
-      margin-bottom: 20px;
-    }
-
-    .profile-details label {
-      font-weight: bold;
-    }
-
-    .profile-details p {
-      margin: 0;
-    }
-
-    .profile-details input[type="file"] {
-      margin-top: 10px;
-    }
-
-    .profile-details button {
-      padding: 8px 16px;
-      background-color: #4CAF50;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .profile-details button:hover {
-      background-color: #45a049;
+    .profile-container {
+      max-width: 500px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
-    <!-- <div class="about-bg">
-        <div class="about-cover">
-            <h1>Profile</h1>
-        </div>
-    </div> -->
-
-    <div class="container">
-        <h1>User Profile</h1>
-        <div class="profile-info">
-          <img id="profile-image" src="profile-image.jpg" alt="Profile Image">
-          <div>
-            <h2 id="profile-name">John Doe</h2>
-            <p id="profile-email">john.doe@example.com</p>
-          </div>
-        </div>
-        <div class="profile-details">
-          <label for="profile-username">Username:</label>
-          <p id="profile-username">johndoe</p>
-          <label for="profile-location">Location:</label>
-          <p id="profile-location">New York</p>
-          <label for="profile-interests">Interests:</label>
-          <p id="profile-interests">Programming, Photography, Traveling</p>
-          <label for="profile-picture">Profile Picture:</label>
-          <input type="file" id="profile-picture" name="profile-picture">
-          <button id="update-profile-btn">Update Profile Picture</button>
-        </div>
+  <div class="container profile-container">
+    <h2 class="text-center">Update Profile</h2>
+    <form action="/profile" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
       </div>
-    
-<script src="js/main.js"></script>      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="profileImage">Profile Image</label>
+        <input type="file" class="form-control-file" id="profileImage" name="profileImage">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+    </form>
+  </div>
 </body>
 </html>

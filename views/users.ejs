@@ -7,6 +7,9 @@
     <title>Admin</title>
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+
     <style>
 header nav a {
   color: white;
@@ -48,16 +51,15 @@ button:hover {
     </style>
 </head>
 <body>
-      <main>
+    <main>
         <div class="admin-header">
-        <div class="logo">
-          <p>Shamba<span>Afrik</span></p>
-      </div>
-        <h1>Admin</h1>
-      </div>
+            <div class="logo">
+                <p>Shamba<span>Afrik</span></p>
+            </div>
+            <h1>Admin</h1>
+        </div>
         <h2 class="">Users</h2>
         <table>
-          <table>
             <thead>
                 <tr>
                     <th>UserID</th>
@@ -65,6 +67,7 @@ button:hover {
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Registration Date</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -76,17 +79,43 @@ button:hover {
                     <td><%= row.email %></td>
                     <td><%= row.dateOfRegistration %></td>
                     <td>
-                      <form action="/delete" method="post">
-                        <input type="hidden" name="id" value="<%= row.userId %>">
-                        <button type="submit">Delete</button>
-                      </form>
+                        <form action="/delete" method="post">
+                            <input type="hidden" name="id" value="<%= row.userId %>">
+                            <button type="submit">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 <% }); %>
             </tbody>
         </table>
+        <button id="download-pdf">Download as PDF</button>
         
-        
-      </main>
+        <script>
+            function generatePdf() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                doc.text('Users Logging Report', 20, 20);
+
+                // Get the table headers and rows
+                const table = document.querySelector("table");
+                const headers = Array.from(table.querySelectorAll("th")).map(header => header.innerText);
+                const rows = Array.from(table.querySelectorAll("tbody tr")).map(row => {
+                    return Array.from(row.querySelectorAll("td")).map(cell => cell.innerText);
+                });
+
+                // Include headers and rows in the PDF
+                doc.autoTable({
+                    head: [headers],
+                    body: rows,
+                    startY: 30, // Adjust start position to avoid overlap with title
+                });
+
+                doc.save('users_logging_report.pdf');
+            }
+
+            document.getElementById('download-pdf').addEventListener('click', generatePdf);
+        </script>
+    </main>
 </body>
 </html>

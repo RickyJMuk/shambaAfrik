@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="icon" type="image/png" href="images/IconLogo.png">
     <link rel="stylesheet" href="css/style.css">
 
 
@@ -140,6 +141,16 @@
 
     </style>
 </head>
+<!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8XDSSFPLP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-H8XDSSFPLP');
+  </script>
 
 <body class="body-container">
 
@@ -183,6 +194,7 @@
             </form>
             <%}%>
         <div class="text"><p>Already signed up? <a href="/login">Log In.</a></p></div>
+        <%-include('footer')%>
 </body>
 
 </html>

@@ -162,10 +162,6 @@ app.get('/admlog', (req, res) => {
     res.render('admlog');
 });
 
-app.get('/buy', (req, res) => {
-    res.render('buy');
-});
-
 app.get('/admin-dashboard', (req, res) => {
     if (req.session.role === 'admin') {
         res.render('admin-dashboard');
@@ -232,23 +228,6 @@ app.post('/delete', (req, res) => {
       res.redirect('/users'); // Redirect to the page where you list users
     });
 });
-  
-
-app.get('/checkout', (req, res) => {
-    res.render('checkout', { cart: cart });
-  });
-  
-  app.post('/checkout', (req, res) => {
-    const { name, email, phone, address } = req.body;
-    // Process payment (e.g., using Stripe or PayPal)
-    // ...
-    // Update cart and clear it
-    cart.forEach((item) => {
-      // Update inventory or database
-    });
-    cart = [];
-    res.redirect('/thank-you');
-  });
   
   app.get('/thank-you', (req, res) => {
     res.render('thank-you');

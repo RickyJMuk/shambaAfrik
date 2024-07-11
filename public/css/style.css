@@ -317,22 +317,15 @@
     {
         background-image: url(../images/kahawa.jpg);
     }
-    25%
+    50%
     {
         background-image: url(../images/ghouse.jpg);
     }
-    50%
-    {
-        background-image: url(../images/rooster.jpg);
-    }
-    75%
-    {
-        background-image: url(../images/drygrass.jpg);
-    }
     100%
     {
-        background-image: url(../images/sheep.jpg);
+        background-image: url(../images/AfrikFarm.jpeg);
     }
+    
 }
 
 /* -----footer----- */

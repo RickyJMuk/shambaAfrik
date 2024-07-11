@@ -5,49 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="icon" type="image/png" href="images/IconLogo.png">
     <link rel="stylesheet" href="css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
 
     <style>
-header nav a {
-  color: white;
-  text-decoration: none;
-  margin-right: 1em;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-table th,
-table td {
-  padding: 0.5em;
-  border: 1px solid gray;
-}
-table th {
-  text-align: left;
-  background-color: #eee;
-}
-table td a {
-  color: blue;
-  text-decoration: none;
-  margin-right: 0.5em;
-}
-
-button {
-  background-color: #F51720;
-  color: white;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-button:hover {
-  font-weight: 900;
-  scale: 1.05;
-}
-
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th,
+        table td {
+            padding: 0.5em;
+            border: 1px solid gray;
+        }
+        table th {
+            text-align: left;
+            background-color: #eee;
+        }
+        table td a {
+            color: blue;
+            text-decoration: none;
+            margin-right: 0.5em;
+        }
+        button {
+            background-color: #F51720;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            font-weight: 900;
+            scale: 1.05;
+        }
     </style>
 </head>
 <body>
@@ -94,8 +93,12 @@ button:hover {
             function generatePdf() {
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF();
-                
-                doc.text('Users Logging Report', 20, 20);
+                const date = new Date();
+                const timestamp = date.toLocaleString();
+
+                doc.text('ShambaAfrik User Logging Report', 20, 20);
+                doc.setFontSize(10);
+                doc.text(`Downloaded on: ${timestamp}`, 20, 30);
 
                 // Get the table headers and rows
                 const table = document.querySelector("table");
@@ -108,7 +111,7 @@ button:hover {
                 doc.autoTable({
                     head: [headers],
                     body: rows,
-                    startY: 30, // Adjust start position to avoid overlap with title
+                    startY: 40, // Adjust start position to avoid overlap with title and timestamp
                 });
 
                 doc.save('users_logging_report.pdf');

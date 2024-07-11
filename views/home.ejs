@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home |</title>
+    <link rel="icon" type="image/png" href="images/IconLogo.png">
+
+    <style>
+        #main-container {
+            background-image: url(../images/AfrikFarm.jpeg);
+            background-position: 100%;
+            background-size: 100%;
+            height: 80vh;
+        }
+        .main-text a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 900;
+        }
+    </style>
 </head>
+<!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8XDSSFPLP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-H8XDSSFPLP');
+  </script>
+
 <body>
     <%-include('header')%>
-    <main class="main-container">
+    <main class="main-container" id="main-container">
         <div class="main-bg-cover">
             <div class="main-text">
                 <h1>Welcome back!</h1>
@@ -18,6 +44,7 @@
                     provide organic farm solutions for the Kenyan farmer. Our solutions are tailored for you, the Kenyan
                     farmer
                     at affordable prices. </p>
+                <p>Introducing <a href="/soko">Soko</a>. A platform for you to list your organic farming produce.</p>
             </div>
             <div class="main-search">
                 <form action="/search" id="form-search" method="post">

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="images/IconLogo.png">
   <link rel="stylesheet" href="css/style.css">
 
 
@@ -69,9 +70,61 @@
     .btn:hover {
       background-color: #F51720;
     }
+    #cart {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+#cart-items {
+  margin-bottom: 20px;
+}
+
+.list-group-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+#checkout-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background-color: #337ab7;
+  color: #fff;
+  cursor: pointer;
+}
+
+#checkout-btn:hover {
+  background-color: #F51720
+}
   </style>
 
 </head>
+
+<!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8XDSSFPLP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-H8XDSSFPLP');
+  </script>
 
 <body>
   <%-include('header')%>
@@ -101,7 +154,8 @@
             <div class="card-body">
               <h5 class="card-title">Dry Mulch Grass</h5>
               <p class="card-text">10kg @ KES 500</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy"
+                data-product='{"name": "Dry Mulch Grass", "price": 500, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -111,7 +165,7 @@
             <div class="card-body">
               <h5 class="card-title">Azolla</h5>
               <p class="card-text">1kg @ KES 100</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Azolla", "price": 100, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -121,7 +175,7 @@
             <div class="card-body">
               <h5 class="card-title">Animal Manure</h5>
               <p class="card-text">1 tonne @ KES 3000</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Animal Manure", "price": 3000, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -131,7 +185,7 @@
             <div class="card-body">
               <h5 class="card-title">Cowpeas Seeds</h5>
               <p class="card-text">1 kg @ KES 200</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Cowpeas Seeds", "price": 200, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -141,7 +195,7 @@
             <div class="card-body">
               <h5 class="card-title">Red Earthworms</h5>
               <p class="card-text">1 kg @ KES 2500</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Red Earthworms", "price": 2500, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -151,7 +205,7 @@
             <div class="card-body">
               <h5 class="card-title">Neem Oil</h5>
               <p class="card-text">1 litre @ KES 2000</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Neem Oil", "price": 2000, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -161,7 +215,7 @@
             <div class="card-body">
               <h5 class="card-title">Natural Pyrethrum Extract</h5>
               <p class="card-text">1 litre @ KES 2000</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Natural Pyrethrum Extract", "price": 2000, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -171,7 +225,7 @@
             <div class="card-body">
               <h5 class="card-title">Garlic Extract</h5>
               <p class="card-text">1 litre @ KES 2000</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Garlic Extract", "price": 2000, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -181,7 +235,7 @@
             <div class="card-body">
               <h5 class="card-title">Lime Dust</h5>
               <p class="card-text">25 kg @ KES 700</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Lime Dust", "price": 700, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -191,7 +245,7 @@
             <div class="card-body">
               <h5 class="card-title">Biochar</h5>
               <p class="card-text">50 kg @ KES 2200</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Biochar", "price": 2200, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -201,7 +255,7 @@
             <div class="card-body">
               <h5 class="card-title">Chilli Pepper Extract</h5>
               <p class="card-text">10 litre @ KES 3000</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Chilli Pepper Extract", "price": 3000, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -211,7 +265,7 @@
             <div class="card-body">
               <h5 class="card-title">Seaweed Extract</h5>
               <p class="card-text">5 litres @ KES 1000</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Seaweed Extract", "price": 1000, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -221,7 +275,7 @@
             <div class="card-body">
               <h5 class="card-title">Fish Emulsion</h5>
               <p class="card-text">1 litre @ KES 700</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Fish Emulsion", "price": 700, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -231,7 +285,7 @@
             <div class="card-body">
               <h5 class="card-title">Clover Seeds</h5>
               <p class="card-text">1 kg @ KES 350</p>
-              <button class="btn btn-primary" type="submit" name="buy">Buy</button>
+              <button class="btn btn-primary" type="submit" name="buy" data-product='{"name": "Clover Seeds", "price": 350, "quantity": 1}'>Buy</button>
             </div>
           </div>
         </div>
@@ -240,12 +294,38 @@
 
     <div id="cart" style="display: none;">
       <h2>Your Cart</h2>
-      <div id="cart-items"></div>
-      <button id="checkout-btn">Checkout</button>
+      <div id="cart-items" class="list-group"></div>
+      <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+      <button id="drop-cart-btn" class="btn btn-danger">Drop Cart</button><br>
+      <form>
+        <label for="mpesa-number">M-Pesa Number:</label>
+        <input type="tel" id="mpesa-number" required>
+        <br>
+        <label for="pick-up-point">Pick-up Point:</label>
+        <select id="pick-up-point"required>
+          <option value="">Select a pick-up point</option>
+          <option value="Ainabkoi">Ainabkoi</option>
+          <option value="Kapseret">Kapseret</option>
+          <option value="Kesses">Kesses</option>
+          <option value="Moiben">Moiben</option>
+          <option value="Soy">Soy</option>
+          <option value="Turbo">Turbo</option>
+        </select>
+      </form>
     </div>
 
     <%-include('footer')%>
-      <script src="js/main.js"></script>   
+    <%if(locals.isLoggedIn){%>
+      <script src="js/main.js"></script>
+      <%}else{%>
+       <script>
+  document.querySelectorAll('.btn.btn-primary').forEach(buyButton => {
+    buyButton.addEventListener('click', () => {
+      alert('Please login or signup to proceed!');
+    });
+  });
+       </script>
+      <%}%>  
 </body>
 
 </html>

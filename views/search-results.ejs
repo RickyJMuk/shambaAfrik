@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
+    <link rel="icon" type="image/png" href="images/IconLogo.png">
     <link rel="stylesheet" href="css/style.css">
-
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             background-color: #1a3315a1;
@@ -45,13 +45,24 @@
         }
     </style>
 </head>
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H8XDSSFPLP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-H8XDSSFPLP');
+</script>
+
 <body>
     <div class="search_results">
     <div class="results">
     <%if(results.length > 0){
         results.forEach((results)=>{
             %>
-            <p><%=results.name%> <%=results.quantity%> KES <%=results.unitPrice%> <span><button type="submit" name="buy">Buy</button></span> </p>
+            <p><%=results.name%> <%=results.quantity%> KES <%=results.unitPrice%> <span><button type="submit" name="buy">Available</button></span> </p>
         <%
         });
     }else{

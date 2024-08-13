@@ -158,10 +158,6 @@ app.post('/search', (req, res) => {
     });
 });
 
-app.get('/admlog', (req, res) => {
-    res.render('admlog');
-});
-
 app.get('/admin-dashboard', (req, res) => {
     if (req.session.role === 'admin') {
         res.render('admin-dashboard');

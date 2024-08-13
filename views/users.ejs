@@ -53,7 +53,7 @@
     <main>
         <div class="admin-header">
             <div class="logo">
-                <p>Shamba<span>Afrik</span></p>
+                <a href="/admin-dashboard"><p>Shamba<span>Afrik</span></p></a>
             </div>
             <h1>Admin</h1>
         </div>
@@ -102,9 +102,9 @@
 
                 // Get the table headers and rows
                 const table = document.querySelector("table");
-                const headers = Array.from(table.querySelectorAll("th")).map(header => header.innerText);
+                const headers = Array.from(table.querySelectorAll("th")).slice(0, -1).map(header => header.innerText); // Exclude last column
                 const rows = Array.from(table.querySelectorAll("tbody tr")).map(row => {
-                    return Array.from(row.querySelectorAll("td")).map(cell => cell.innerText);
+                    return Array.from(row.querySelectorAll("td")).slice(0, -1).map(cell => cell.innerText); // Exclude last column
                 });
 
                 // Include headers and rows in the PDF

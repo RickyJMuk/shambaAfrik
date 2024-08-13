@@ -8,10 +8,14 @@
     <div class="footer-links">
         <a href="/about">About</a>
         <a href="/products">Products</a>
-        <a href="/login">Log In</a>
-        <a href="/signup">Register</a>
-
-        
+        <%if(locals.isLoggedIn){%>
+            <a href="/soko">Soko</a>
+            <a href="/logout">Log Out</a>
+            <%}else{%>
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
+                <%}%>
+    
     </div>
     <div class="footer-logo">
         <div class="logo">

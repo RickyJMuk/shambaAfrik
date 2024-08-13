@@ -62,7 +62,7 @@
     <%if(results.length > 0){
         results.forEach((results)=>{
             %>
-            <p><%=results.name%> <%=results.quantity%> KES <%=results.unitPrice%> <span><button type="submit" name="buy">Available</button></span> </p>
+            <p><%=results.name%> <%=results.quantity%> KES <%=results.unitPrice%> <span><button type="submit" name="buy"><a href="/products">Buy</a></button></span> </p>
         <%
         });
     }else{
